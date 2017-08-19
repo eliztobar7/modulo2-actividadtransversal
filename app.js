@@ -38,6 +38,13 @@ app.get("/",function(solicitud, respuesta){
   respuesta.render("index");
 });
 
+app.get("/menu",function(solicitud,respuesta){
+  Product.find(function(error,documento){
+    if(error){console.log(error); }
+    res.render("menu/index", { products: documento })
+  });
+});
+
 app.post("/menu",middleware_upload,function(solicitud,respuesta){
   if(solicitud.body.password == "123"){
     var data = {
