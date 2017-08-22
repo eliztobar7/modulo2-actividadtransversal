@@ -41,7 +41,7 @@ app.get("/",function(solicitud, respuesta){
 app.get("/menu",function(solicitud,respuesta){
   Product.find(function(error,documento){
     if(error){console.log(error); }
-    res.render("menu/index", { products: documento })
+    respuesta.render("menu/index", { products: documento })
   });
 });
 
